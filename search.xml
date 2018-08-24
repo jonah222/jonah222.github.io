@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[nginx源码安装]]></title>
+    <url>%2F2018%2F08%2F24%2Fnginx%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[nginx源码安装下载安装过程12345678910111213141516171819cd /root/mkdir toolscd tools/yum install openssl openssl-devel -yyum install pcre pcre-deve -yuseradd www -s /sbin/nologin -Mwget -q http://nginx.org/download/nginx-1.14.0.tar.gztar xf nginx-nginx-1.14.0.tar.gzcd nginx-1.14.0./configure --user=www --group=www --with-http_ssl_module --with-http_stub_status_module --prefix=/apps/nginx-1.14.0/makemake installln -s /apps/nginx-1.14.0/ /apps/nginx 检查 重启123/apps/nginx/sbin/nginx -t/apps/nginx/sbin/nginx -s reload 配置文件123456789101112131415161718192021222324worker_processes 1;events &#123; worker_connections 1024;&#125;http &#123; include mime.types; default_type application/octet-stream; sendfile on; keepalive_timeout 65; server &#123; listen 80; server_name 10.0.0.61; # 域名 location / &#123; root /mnt/hgfs/rpm; # 网站根目录 index index.html index.htm; autoindex on; # 目录列表 autoindex_exact_size off; autoindex_localtime on; &#125; error_page 500 502 503 504 /50x.html; location = /50x.html &#123; root html; &#125; &#125;]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo改换主题]]></title>
+    <url>%2F2018%2F08%2F24%2Fhexo-theme%2F</url>
+    <content type="text"><![CDATA[hexo 更换主题自己在github上搭建了一个博客，主题不喜欢，所以就换一个，个人比较喜欢的有两个，一个是light，另了个是next。 安装主题安装都很简单，进入你hexo的根目录，直接git就可以了。每个主题都有给出安装方法，很简单。12345#light git clone https://github.com/hexojs/hexo-theme-light.git themes/light#next git clone https://github.com/theme-next/hexo-theme-next themes/next 使用主题使用也很简单，到_config.yml配置文件中，修改theme选项 1theme: next]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>theme</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F08%2F24%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
