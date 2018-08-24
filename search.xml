@@ -13,11 +13,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F08%2F24%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[hexo改换主题]]></title>
     <url>%2F2018%2F08%2F24%2Fhexo-theme%2F</url>
     <content type="text"><![CDATA[hexo 更换主题自己在github上搭建了一个博客，主题不喜欢，所以就换一个，个人比较喜欢的有两个，一个是light，另了个是next。 安装主题安装都很简单，进入你hexo的根目录，直接git就可以了。每个主题都有给出安装方法，很简单。12345#light git clone https://github.com/hexojs/hexo-theme-light.git themes/light#next git clone https://github.com/theme-next/hexo-theme-next themes/next 使用主题使用也很简单，到_config.yml配置文件中，修改theme选项 1theme: next]]></content>
@@ -28,5 +23,10 @@
         <tag>theme</tag>
         <tag>hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F08%2F24%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
