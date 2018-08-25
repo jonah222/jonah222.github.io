@@ -420,7 +420,7 @@
 
       
         
-          <h1 id="nginx源码安装"><a href="#nginx源码安装" class="headerlink" title="nginx源码安装"></a>nginx源码安装</h1><h2 id="下载安装过程"><a href="#下载安装过程" class="headerlink" title="下载安装过程"></a>下载安装过程</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cd /root/</span><br><span class="line">mkdir tools</span><br><span class="line">cd tools/</span><br><span class="line"></span><br><span class="line">yum install openssl openssl-devel -y</span><br><span class="line">yum install pcre pcre-deve -y</span><br><span class="line">useradd www -s /sbin/nologin -M</span><br><span class="line"></span><br><span class="line">wget -q http://nginx.org/download/nginx-1.14.0.tar.gz</span><br><span class="line">tar xf nginx-nginx-1.14.0.tar.gz</span><br><span class="line"></span><br><span class="line">cd nginx-1.14.0</span><br><span class="line"></span><br><span class="line">./configure --user=www --group=www --with-http_ssl_module --with-http_stub_status_module  --prefix=/apps/nginx-1.14.0/</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">ln -s /apps/nginx-1.14.0/ /apps/nginx</span><br></pre></td></tr></table></figure>
+          <h1 id="nginx源码安装"><a href="#nginx源码安装" class="headerlink" title="nginx源码安装"></a>nginx源码安装</h1><h2 id="下载安装过程"><a href="#下载安装过程" class="headerlink" title="下载安装过程"></a>下载安装过程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/</span><br><span class="line">mkdir tools</span><br><span class="line"><span class="built_in">cd</span> tools/</span><br><span class="line"></span><br><span class="line">yum install openssl openssl-devel -y</span><br><span class="line">yum install pcre pcre-deve -y</span><br><span class="line">useradd www -s /sbin/nologin -M</span><br><span class="line"></span><br><span class="line">wget -q http://nginx.org/download/nginx-1.14.0.tar.gz</span><br><span class="line">tar xf nginx-nginx-1.14.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> nginx-1.14.0</span><br><span class="line"></span><br><span class="line">./configure --user=www --group=www --with-http_ssl_module --with-http_stub_status_module  --prefix=/apps/nginx-1.14.0/</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">ln -s /apps/nginx-1.14.0/ /apps/nginx</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/24/nginx源码安装/#more" rel="contents">
@@ -945,6 +945,7 @@
 
 
 
+<!--百度统计-->
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -956,6 +957,26 @@ var _hmt = _hmt || [];
 </script>
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      总访问人数：
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      总访问次数：
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
