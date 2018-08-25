@@ -1,32 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[nginx源码安装]]></title>
-    <url>%2F2018%2F08%2F24%2Fnginx%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85%2F</url>
-    <content type="text"><![CDATA[nginx源码安装下载安装过程12345678910111213141516171819cd /root/mkdir toolscd tools/yum install openssl openssl-devel -yyum install pcre pcre-deve -yuseradd www -s /sbin/nologin -Mwget -q http://nginx.org/download/nginx-1.14.0.tar.gztar xf nginx-nginx-1.14.0.tar.gzcd nginx-1.14.0./configure --user=www --group=www --with-http_ssl_module --with-http_stub_status_module --prefix=/apps/nginx-1.14.0/makemake installln -s /apps/nginx-1.14.0/ /apps/nginx 检查 重启123/apps/nginx/sbin/nginx -t/apps/nginx/sbin/nginx -s reload 配置文件123456789101112131415161718192021222324worker_processes 1;events &#123; worker_connections 1024;&#125;http &#123; include mime.types; default_type application/octet-stream; sendfile on; keepalive_timeout 65; server &#123; listen 80; server_name 10.0.0.61; # 域名 location / &#123; root /mnt/hgfs/rpm; # 网站根目录 index index.html index.htm; autoindex on; # 目录列表 autoindex_exact_size off; autoindex_localtime on; &#125; error_page 500 502 503 504 /50x.html; location = /50x.html &#123; root html; &#125; &#125;]]></content>
+<search> 
+  
+    
+    <entry>
+      <title>nginx源码安装</title>
+      <link href="/2018/08/24/nginx%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/"/>
+      <url>/2018/08/24/nginx%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<h1 id="nginx源码安装"><a href="#nginx源码安装" class="headerlink" title="nginx源码安装"></a>nginx源码安装</h1><h2 id="下载安装过程"><a href="#下载安装过程" class="headerlink" title="下载安装过程"></a>下载安装过程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/</span><br><span class="line">mkdir tools</span><br><span class="line"><span class="built_in">cd</span> tools/</span><br><span class="line"></span><br><span class="line">yum install openssl openssl-devel -y</span><br><span class="line">yum install pcre pcre-deve -y</span><br><span class="line">useradd www -s /sbin/nologin -M</span><br><span class="line"></span><br><span class="line">wget -q http://nginx.org/download/nginx-1.14.0.tar.gz</span><br><span class="line">tar xf nginx-nginx-1.14.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> nginx-1.14.0</span><br><span class="line"></span><br><span class="line">./configure --user=www --group=www --with-http_ssl_module --with-http_stub_status_module  --prefix=/apps/nginx-1.14.0/</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">ln -s /apps/nginx-1.14.0/ /apps/nginx</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="检查-重启"><a href="#检查-重启" class="headerlink" title="检查 重启"></a>检查 重启</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/apps/</span>nginx<span class="regexp">/sbin/</span>nginx -t</span><br><span class="line"></span><br><span class="line"><span class="regexp">/apps/</span>nginx<span class="regexp">/sbin/</span>nginx -s reload</span><br></pre></td></tr></table></figure><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">10.0.0.61</span>; <span class="comment"># 域名</span></span><br><span class="line">        <span class="attribute">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span>   /mnt/hgfs/rpm; <span class="comment"># 网站根目录</span></span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">            <span class="attribute">autoindex</span> <span class="literal">on</span>; <span class="comment"># 目录列表</span></span><br><span class="line">            <span class="attribute">autoindex_exact_size</span> <span class="literal">off</span>;</span><br><span class="line">            <span class="attribute">autoindex_localtime</span> <span class="literal">on</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="attribute">error_page</span>   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /50x.html;</span><br><span class="line">        <span class="attribute">location</span> = /50x.html &#123;</span><br><span class="line">            <span class="attribute">root</span>   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
       <categories>
-        <category>linux</category>
+          
+          <category> linux </category>
+          
       </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[hexo改换主题]]></title>
-    <url>%2F2018%2F08%2F24%2Fhexo-theme%2F</url>
-    <content type="text"><![CDATA[hexo 更换主题自己在github上搭建了一个博客，主题不喜欢，所以就换一个，个人比较喜欢的有两个，一个是light，另了个是next。 安装主题安装都很简单，进入你hexo的根目录，直接git就可以了。每个主题都有给出安装方法，很简单。12345#light git clone https://github.com/hexojs/hexo-theme-light.git themes/light#next git clone https://github.com/theme-next/hexo-theme-next themes/next 使用主题使用也很简单，到_config.yml配置文件中，修改theme选项 1theme: next]]></content>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>hexo改换主题</title>
+      <link href="/2018/08/24/hexo-theme/"/>
+      <url>/2018/08/24/hexo-theme/</url>
+      <content type="html"><![CDATA[<h1 id="hexo-更换主题"><a href="#hexo-更换主题" class="headerlink" title="hexo 更换主题"></a>hexo 更换主题</h1><p>自己在github上搭建了一个博客，主题不喜欢，所以就换一个，个人比较喜欢的有两个，一个是light，另了个是next。</p><h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>安装都很简单，进入你hexo的根目录，直接git就可以了。每个主题都有给出安装方法，很简单。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#light</span></span><br><span class="line"> git <span class="built_in">clone</span> https://github.com/hexojs/hexo-theme-light.git themes/light</span><br><span class="line"></span><br><span class="line"><span class="comment">#next</span></span><br><span class="line"> git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p><a id="more"></a><h2 id="使用主题"><a href="#使用主题" class="headerlink" title="使用主题"></a>使用主题</h2><p>使用也很简单，到_config.yml配置文件中，修改theme选项</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>]]></content>
+      
       <categories>
-        <category>blog</category>
+          
+          <category> blog </category>
+          
       </categories>
-      <tags>
-        <tag>theme</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F08%2F24%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> theme </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2018/08/24/hello-world/"/>
+      <url>/2018/08/24/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a><br><a id="more"></a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+    </entry>
+    
+  
+  
 </search>
