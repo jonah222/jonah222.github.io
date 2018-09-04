@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -86,7 +86,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '6.4.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -114,7 +114,7 @@
 <meta name="keywords" content="linux,nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LNMP系列（一）nginx源码安装">
-<meta property="og:url" content="http://jonah222.github.io/2018/08/24/LNMP系列（一）nginx源码安装/index.html">
+<meta property="og:url" content="http://jonah222.gitee.io/2018/08/24/LNMP系列（一）nginx源码安装/index.html">
 <meta property="og:site_name" content="Z&#39;Blog">
 <meta property="og:description" content="LNMP系列（一）nginx源码安装下载安装过程12345678910111213141516171819cd /root/mkdir toolscd tools/yum install openssl openssl-devel -yyum install pcre pcre-devel -yuseradd www -s /sbin/nologin -Mwget -q http://nginx.">
 <meta property="og:locale" content="zh-CN">
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://jonah222.github.io/2018/08/24/LNMP系列（一）nginx源码安装/"/>
+  <link rel="canonical" href="http://jonah222.gitee.io/2018/08/24/LNMP系列（一）nginx源码安装/"/>
 
 
 
@@ -253,9 +253,6 @@
   
 
   
-    
-
-  
 
   
     <div class="site-search">
@@ -299,6 +296,9 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jonah222.github.io/2018/08/24/LNMP系列（一）nginx源码安装/">
+    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2018/08/24/LNMP系列（一）nginx源码安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jonah">
@@ -425,8 +425,8 @@
       
         <h1 id="LNMP系列（一）nginx源码安装"><a href="#LNMP系列（一）nginx源码安装" class="headerlink" title="LNMP系列（一）nginx源码安装"></a>LNMP系列（一）nginx源码安装</h1><h2 id="下载安装过程"><a href="#下载安装过程" class="headerlink" title="下载安装过程"></a>下载安装过程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/</span><br><span class="line">mkdir tools</span><br><span class="line"><span class="built_in">cd</span> tools/</span><br><span class="line"></span><br><span class="line">yum install openssl openssl-devel -y</span><br><span class="line">yum install pcre pcre-devel -y</span><br><span class="line">useradd www -s /sbin/nologin -M</span><br><span class="line"></span><br><span class="line">wget -q http://nginx.org/download/nginx-1.14.0.tar.gz</span><br><span class="line">tar xf nginx-1.14.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> nginx-1.14.0</span><br><span class="line"></span><br><span class="line">./configure --user=www --group=www --with-http_ssl_module --with-http_stub_status_module  --prefix=/apps/nginx-1.14.0/</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line">ln -s /apps/nginx-1.14.0/ /apps/nginx</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="检查-重启"><a href="#检查-重启" class="headerlink" title="检查 重启"></a>检查 重启</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/apps/nginx/sbin/nginx -t</span><br><span class="line"></span><br><span class="line">/apps/nginx/sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  1;</span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  10.0.0.61; # 域名</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /mnt/hgfs/rpm; # 网站根目录</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">            autoindex on; # 目录列表</span><br><span class="line">            autoindex_exact_size off;</span><br><span class="line">            autoindex_localtime on;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="检查-重启"><a href="#检查-重启" class="headerlink" title="检查 重启"></a>检查 重启</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/apps/</span>nginx<span class="regexp">/sbin/</span>nginx -t</span><br><span class="line"></span><br><span class="line"><span class="regexp">/apps/</span>nginx<span class="regexp">/sbin/</span>nginx -s reload</span><br></pre></td></tr></table></figure>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">10.0.0.61</span>; <span class="comment"># 域名</span></span><br><span class="line">        <span class="attribute">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span>   /mnt/hgfs/rpm; <span class="comment"># 网站根目录</span></span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">            <span class="attribute">autoindex</span> <span class="literal">on</span>; <span class="comment"># 目录列表</span></span><br><span class="line">            <span class="attribute">autoindex_exact_size</span> <span class="literal">off</span>;</span><br><span class="line">            <span class="attribute">autoindex_localtime</span> <span class="literal">on</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="attribute">error_page</span>   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /50x.html;</span><br><span class="line">        <span class="attribute">location</span> = /50x.html &#123;</span><br><span class="line">            <span class="attribute">root</span>   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -544,7 +544,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -586,7 +586,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -664,7 +668,7 @@
 
 
 
-  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.0</div>
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
 
 
 
@@ -798,6 +802,13 @@ var _hmt = _hmt || [];
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
