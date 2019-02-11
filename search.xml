@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[1，Hello World]]></title>
-    <url>%2F2019%2F02%2F11%2F1%EF%BC%8Chello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[8，kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?]]></title>
-    <url>%2F2018%2F12%2F23%2F8%EF%BC%8C%E6%A1%88%E4%BE%8B%EF%BC%9A%20tables%20full%2F</url>
-    <content type="text"><![CDATA[#企业案例 /var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决? ##解答: 12345678#上述结果会让业务访问很慢!#下面是针对iptables的优化net.nf_conntrack_max = 25000000net.netfilter.nf_conntrack_max = 25000000net.netfilter.nf_conntrack_tcp_timeout_established = 180net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120net.netfilter.nf_conntrack_tcp_timeout_close_wait = 60net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 120]]></content>
+    <title><![CDATA[10，案例：网站迁移]]></title>
+    <url>%2F2019%2F02%2F11%2F10%EF%BC%8C%E6%A1%88%E4%BE%8B%EF%BC%9A%E8%BF%81%E7%A7%BB%E7%BD%91%E7%AB%99%2F</url>
+    <content type="text"><![CDATA[一次网站迁移故障及分析http://blog.51cto.com/lxshopping/1574929 迁移流程应该是:123456789101112131.暂停原服务器数据库，导出相关数据库2.将导出的数据库同步到杭州xx服务器上面并导入到数据库中3.对xx服务器进行压力测试及用户登录测试4.回滚方案，出现问题及时回滚到原服务器，保证用户正常访问5.切换域名指向到xx服务器6.原服务器上面做301跳转到xx服务器（保证不写入新数据到原运营服务器上面）7.运营协助测试新服务器数据是否正常]]></content>
       <categories>
         <category>案例</category>
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>iptables</tag>
+        <tag>网站迁移</tag>
       </tags>
   </entry>
   <entry>
@@ -27,6 +22,18 @@
       <tags>
         <tag>linux</tag>
         <tag>网站迁移</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[8，kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?]]></title>
+    <url>%2F2018%2F12%2F23%2F8%EF%BC%8C%E6%A1%88%E4%BE%8B%EF%BC%9A%20tables%20full%2F</url>
+    <content type="text"><![CDATA[#企业案例 /var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决? ##解答: 12345678#上述结果会让业务访问很慢!#下面是针对iptables的优化net.nf_conntrack_max = 25000000net.netfilter.nf_conntrack_max = 25000000net.netfilter.nf_conntrack_tcp_timeout_established = 180net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120net.netfilter.nf_conntrack_tcp_timeout_close_wait = 60net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 120]]></content>
+      <categories>
+        <category>案例</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>iptables</tag>
       </tags>
   </entry>
   <entry>
@@ -100,5 +107,10 @@
         <tag>theme</tag>
         <tag>hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1，Hello World]]></title>
+    <url>%2F2018%2F08%2F23%2F1%EF%BC%8Chello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
