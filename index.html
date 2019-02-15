@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/02/11/10，案例：迁移网站/">
+    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/02/11/10，word手动换行符替换为段落标记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jonah">
@@ -334,8 +334,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/11/10，案例：迁移网站/" itemprop="url">
-                  10，案例：网站迁移
+                <a class="post-title-link" href="/2019/02/11/10，word手动换行符替换为段落标记/" itemprop="url">
+                  10，word手动换行符替换为段落标记
                 </a>
               
             
@@ -393,7 +393,7 @@
 
           
           
-             <span id="/2019/02/11/10，案例：迁移网站/" class="leancloud_visitors" data-flag-title="10，案例：网站迁移">
+             <span id="/2019/02/11/10，word手动换行符替换为段落标记/" class="leancloud_visitors" data-flag-title="10，word手动换行符替换为段落标记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -426,8 +426,9 @@
       
         
           
-            <h1 id="一次网站迁移故障及分析"><a href="#一次网站迁移故障及分析" class="headerlink" title="一次网站迁移故障及分析"></a>一次网站迁移故障及分析</h1><p><a href="http://blog.51cto.com/lxshopping/1574929" target="_blank" rel="noopener">http://blog.51cto.com/lxshopping/1574929</a></p>
-<h2 id="迁移流程应该是"><a href="#迁移流程应该是" class="headerlink" title="迁移流程应该是:"></a>迁移流程应该是:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.暂停原服务器数据库，导出相关数据库</span><br><span class="line"></span><br><span class="line">2.将导出的数据库同步到杭州xx服务器上面并导入到数据库中</span><br><span class="line"></span><br><span class="line">3.对xx服务器进行压力测试及用户登录测试</span><br><span class="line"></span><br><span class="line">4.回滚方案，出现问题及时回滚到原服务器，保证用户正常访问</span><br><span class="line"></span><br><span class="line">5.切换域名指向到xx服务器</span><br><span class="line"></span><br><span class="line">6.原服务器上面做301跳转到xx服务器（保证不写入新数据到原运营服务器上面）</span><br><span class="line"></span><br><span class="line">7.运营协助测试新服务器数据是否正常</span><br></pre></td></tr></table></figure>
+            <h1 id="word手动换行符替换为段落标记"><a href="#word手动换行符替换为段落标记" class="headerlink" title="word手动换行符替换为段落标记"></a>word手动换行符替换为段落标记</h1><blockquote>
+<p>word中的手动换行符是用shift+enter打出的，一个向下的箭头符号。搜索中用符号（^l）表示（line）。<br>word中的段落标记是按回车（enter）打出来的.搜索中用符号（^p）表示（paragraph）。<br>在替换的特殊格式中可以找到“手动换行符”和“段落标记”。</p>
+</blockquote>
 
           
         
@@ -775,7 +776,9 @@
         
           
             <p>#企业案例</p>
-<p><code>/var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?</code></p>
+<blockquote>
+<p>/var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?</p>
+</blockquote>
 <p>##解答:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#上述结果会让业务访问很慢!</span></span><br><span class="line"><span class="comment">#下面是针对iptables的优化</span></span><br><span class="line">net.nf_conntrack_max = 25000000</span><br><span class="line">net.netfilter.nf_conntrack_max = 25000000</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_established = 180</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_close_wait = 60</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 120</span><br></pre></td></tr></table></figure>
 

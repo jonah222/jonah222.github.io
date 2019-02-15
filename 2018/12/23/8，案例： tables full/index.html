@@ -110,18 +110,18 @@
 
 
 
-  <meta name="description" content="#企业案例 /var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决? ##解答: 12345678#上述结果会让业务访问很慢!#下面是针对iptables的优化net.nf_conntrack_max = 25000000net.netfilter.nf_conntrack_max = 2500000">
+  <meta name="description" content="#企业案例  /var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?  ##解答: 12345678#上述结果会让业务访问很慢!#下面是针对iptables的优化net.nf_conntrack_max = 25000000net.netfilter.nf_conntrack_max = 25000">
 <meta name="keywords" content="linux,iptables">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8，kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?">
 <meta property="og:url" content="http://jonah222.gitee.io/2018/12/23/8，案例： tables full/index.html">
 <meta property="og:site_name" content="Z&#39;Blog">
-<meta property="og:description" content="#企业案例 /var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决? ##解答: 12345678#上述结果会让业务访问很慢!#下面是针对iptables的优化net.nf_conntrack_max = 25000000net.netfilter.nf_conntrack_max = 2500000">
+<meta property="og:description" content="#企业案例  /var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?  ##解答: 12345678#上述结果会让业务访问很慢!#下面是针对iptables的优化net.nf_conntrack_max = 25000000net.netfilter.nf_conntrack_max = 25000">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-12-13T12:51:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="8，kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?">
-<meta name="twitter:description" content="#企业案例 /var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决? ##解答: 12345678#上述结果会让业务访问很慢!#下面是针对iptables的优化net.nf_conntrack_max = 25000000net.netfilter.nf_conntrack_max = 2500000">
+<meta name="twitter:description" content="#企业案例  /var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?  ##解答: 12345678#上述结果会让业务访问很慢!#下面是针对iptables的优化net.nf_conntrack_max = 25000000net.netfilter.nf_conntrack_max = 25000">
 
 
 
@@ -440,7 +440,9 @@
 
       
         <p>#企业案例</p>
-<p><code>/var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?</code></p>
+<blockquote>
+<p>/var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?</p>
+</blockquote>
 <p>##解答:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#上述结果会让业务访问很慢!</span></span><br><span class="line"><span class="comment">#下面是针对iptables的优化</span></span><br><span class="line">net.nf_conntrack_max = 25000000</span><br><span class="line">net.netfilter.nf_conntrack_max = 25000000</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_established = 180</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_close_wait = 60</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 120</span><br></pre></td></tr></table></figure>
 
