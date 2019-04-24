@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[12，docker的常用命令]]></title>
+    <url>%2F2019%2F02%2F25%2F12%EF%BC%8Cdocker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[docker的常用命令 1、查看docker版本信息docker version查看客户端的信息，并通过socket查询服务端的信息。 2、查看docker信息docker info查看docker的汇总信息。3、查看镜像列表docker images4、查看所有的镜像包括过程镜像docker images -a 5、显示完整的镜像IDdocker images –no-trunc6、只显示镜像IDdocker images –no-trunc -q7、pull镜像docker pull centos:7.6.18108、pull所有标签的镜像docker pull centos9、查看运行中的容器docker ps10、列出所有有容器（包含停止的容器）docker ps -a11、显示容器大小docker ps -a -s12、仅列出最新创建的一个容器docker ps -l13、仅列出最新创建的n个容器docker ps n=214、仅列出容器IDdocker ps -q15、显示完整的容器IDdocker ps -q –no-trunc16、删除镜像docker rmi centos:7.6.181017、强制删除镜像docker rmi -f centos:7.6.1810也可以直接指定镜像ID进行删除。18、不移除该镜像的过程镜像，默认移除。docker rmi nginx:latest –no-prune19、删除容器docekr rm 154fe4e6a0c620、 强行移除该容器，即使其正在运行docker rm -f 154fe4e6a0c621、移除与容器关联的空间docker rm -v 154fe4e6a0c622、查看指定镜像的创建历史docker history centos:latest23、完整显示镜像历史docker history centos:latest –no-trunc24、启动、停止和重启一个或多个指定容器。（多个容器就空格添加多个容器ID即可）docker start 154fe4e6a0c6docker stop 154fe4e6a0c6docker restart 154fe4e6a0c625、启动之后并进入一个标准输入输出终端docker start -a 154fe4e6a0c626、交互式启动docker start -i 154fe4e6a0c627、停止的时候，超时就强制杀掉docker stop 154fe4e6a0c6 -t 2docker restart 154fe4e6a0c6 -t 228、从镜像启动容器docker run -itd centos:7.6.181029、暂停某一容器的所有进程docker pause 154fe4e6a0c630、恢复某一容器的所有进程docker unpause 154fe4e6a0c6 31、查看镜像的标准输出docker logs 154fe4e6a0c6 -f32、仅列出最新10条容器日志。docker logs 154fe4e6a0c6 –tail=”10”33、给镜像打上新的标签docker tag centos:7.6.1810 centos:76181034、杀死一个或多个指定容器进程docker kill 154fe4e6a0c635、将指定镜像保存成 tar 归档文件， docker load 的逆操作。docker save -o “centos.tar”或者docker save &gt; “centos.tar”36、从 tar 镜像归档中载入镜像， docker save 的逆操作。docker load -i centos.tar或者docker load &lt; centos.tar37、导出容器docker export 154fe4e6a0c6 -o export.tar或者docker export 154fe4e6a0c6 &gt; export.tar38、导入容器tar文件到镜像docker import -i export.tar或者docker import &lt; export.tar39、查看一个正在运行容器进程，支持 ps 命令参数。docker top 154fe4e6a0c6 -auxfww40、按步骤输入在 Docker Hub 注册的用户名、密码和邮箱即可完成登录docker login41、运行后从指定服务器登出，默认为官方服务器。docker logout42、启动设置容器主机名docker run -itd –hostname=centos7 centos:latest43、启动挂载本地目录到容器里面docker run -itd -v /data/centos7:/data centos:latest/data/centos7是物理目录，/data是容器里面的目录44、启动时指定dns，如果不指定是跟物理机是一致的docker run -itd –dns 8.8.8.8 centos:latest45、查找镜像站的镜像docker search centos]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[11，克隆完成虚拟机，修改主机名和ip]]></title>
+    <url>%2F2019%2F02%2F17%2F11%EF%BC%8C%E5%85%8B%E9%9A%86%E5%AE%8C%E6%88%90%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E5%92%8Cip%2F</url>
+    <content type="text"><![CDATA[Centos 6123ip=77;name=ldapserver;sed -i '/IPADDR/s#200$#'"$ip"'#g' /etc/sysconfig/network-scripts/ifcfg-eth*sed -i 's#oldboy-muban#'"$name"'#g' /etc/sysconfig/network Centos 71234ip=111;name=docker;sed -i '/IPADDR/s#222$#'"$ip"'#g' /etc/sysconfig/network-scripts/ifcfg-eth*#sed -i 's#centos7-muban#'"$name"'#g' /etc/hostnamehostnamectl set-hostname $name]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>优化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[10，word手动换行符替换为段落标记]]></title>
     <url>%2F2019%2F02%2F11%2F10%EF%BC%8Cword%E6%89%8B%E5%8A%A8%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%9B%BF%E6%8D%A2%E4%B8%BA%E6%AE%B5%E8%90%BD%E6%A0%87%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[word手动换行符替换为段落标记 word中的手动换行符是用shift+enter打出的，一个向下的箭头符号。搜索中用符号（^l）表示（line）。word中的段落标记是按回车（enter）打出来的.搜索中用符号（^p）表示（paragraph）。在替换的特殊格式中可以找到“手动换行符”和“段落标记”。]]></content>
