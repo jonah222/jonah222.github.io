@@ -315,6 +315,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/07/20/18，网络文件系统--安装配置nfs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonah">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Z'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/20/18，网络文件系统--安装配置nfs/" itemprop="url">
+                  18，网络文件系统--安装配置nfs
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-20 23:47:00" itemprop="dateCreated datePublished" datetime="2019-07-20T23:47:00+08:00">2019-07-20</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/20/18，网络文件系统--安装配置nfs/" class="leancloud_visitors" data-flag-title="18，网络文件系统--安装配置nfs">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="NFS服务端部署流程"><a href="#NFS服务端部署流程" class="headerlink" title="NFS服务端部署流程"></a>NFS服务端部署流程</h3><h4 id="1，安装nfs和rpcbind"><a href="#1，安装nfs和rpcbind" class="headerlink" title="1，安装nfs和rpcbind"></a>1，安装nfs和rpcbind</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install nfs-utils rpcbind  -y</span><br><span class="line">[root@nfs01 ~]<span class="comment"># rpm -qa nfs-utils rpcbind </span></span><br><span class="line">rpcbind-0.2.0-16.el6.x86_64</span><br><span class="line">nfs-utils-1.2.3-78.el6.x86_64</span><br></pre></td></tr></table></figure>
+<h4 id="2，启动rpcbind和nfs服务"><a href="#2，启动rpcbind和nfs服务" class="headerlink" title="2，启动rpcbind和nfs服务"></a>2，启动rpcbind和nfs服务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">先启动rpcbind</span><br><span class="line">/etc/init.d/rpcbind start</span><br><span class="line">[root@nfs01 ~]<span class="comment"># /etc/init.d/rpcbind start</span></span><br><span class="line">Starting rpcbind:                                          [  OK  ]</span><br><span class="line">查看rpc信息</span><br><span class="line">[root@nfs01 ~]<span class="comment"># rpcinfo -p 10.0.0.31</span></span><br><span class="line">[root@nfs01 ~]<span class="comment"># rpcinfo -p localhost  </span></span><br><span class="line">[root@nfs01 ~]<span class="comment"># rpcinfo -p </span></span><br><span class="line">   program vers proto   port  service</span><br><span class="line">    100000    4   tcp    111  portmapper</span><br><span class="line">    100000    3   tcp    111  portmapper</span><br><span class="line">    100000    2   tcp    111  portmapper</span><br><span class="line">    100000    4   udp    111  portmapper</span><br><span class="line">    100000    3   udp    111  portmapper</span><br><span class="line">    100000    2   udp    111  portmapper</span><br><span class="line">再启动nfs</span><br><span class="line">/etc/init.d/nfs start</span><br><span class="line">rpcinfo -p</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/20/18，网络文件系统--安装配置nfs/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/06/25/17，备份--安装配置rsync/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -425,23 +595,14 @@
 
       
         
-          
-            <h3 id="服务端安装配置rsync"><a href="#服务端安装配置rsync" class="headerlink" title="服务端安装配置rsync"></a>服务端安装配置rsync</h3><h4 id="查看rsync安装包"><a href="#查看rsync安装包" class="headerlink" title="查看rsync安装包"></a>查看rsync安装包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#我的安装系统的时候，就已经安装了rsync软件了，只需要配置就可以了</span></span><br><span class="line">rpm -qa rsync</span><br><span class="line"><span class="comment">#安装</span></span><br><span class="line"><span class="comment">#yum install rsync -y</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#源码安装：</span></span><br><span class="line">rpm -e --nodeps rsync   <span class="comment">#卸载系统自带的rsync</span></span><br><span class="line">rpm -qa rsync</span><br><span class="line">wget https://download.samba.org/pub/rsync/src/rsync-3.1.3.tar.gz</span><br><span class="line"><span class="comment">#wget -O https://download.samba.org/pub/rsync/src/rsync-3.1.3.tar.gz ./rsync.tar.gz</span></span><br><span class="line"></span><br><span class="line">tar xf rsync-3.1.3.tar.gz</span><br><span class="line"><span class="built_in">cd</span> rsync-3.1.3</span><br><span class="line"></span><br><span class="line"><span class="comment">#./configure --prefix=/apps/rsync/</span></span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-<h4 id="添加rsync服务的用户，管理本地目录的"><a href="#添加rsync服务的用户，管理本地目录的" class="headerlink" title="添加rsync服务的用户，管理本地目录的"></a>添加rsync服务的用户，管理本地目录的</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -s /sbin/nologin -M rsync</span><br><span class="line">id rsync</span><br></pre></td></tr></table></figure>
-<h4 id="生成rsyncd-conf配置文件"><a href="#生成rsyncd-conf配置文件" class="headerlink" title="生成rsyncd.conf配置文件"></a>生成rsyncd.conf配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##rsyncd.conf start##</span></span><br><span class="line">uid = rsync                                       用户，远端的命令使用rsync访问共享目录</span><br><span class="line">gid = rsync                                       用户组</span><br><span class="line">use chroot = no                                    安全选项</span><br><span class="line">max connections = 200                              最大连接数</span><br><span class="line">timeout = 300                                      超时时间s</span><br><span class="line">pid file = /var/run/rsyncd.pid                          rsync进程对应的进程号文件</span><br><span class="line">lock file = /var/run/rsync.lock                         rsync的程序锁文件</span><br><span class="line"><span class="built_in">log</span> file = /var/<span class="built_in">log</span>/rsyncd.log                          rsync的日志 出错</span><br><span class="line">[oldboy]                                           模块名称</span><br><span class="line">path = /oldboy                                      服务器提供访问的目录</span><br><span class="line">ignore errors                                        忽略错误</span><br><span class="line"><span class="built_in">read</span> only = <span class="literal">false</span>                                       可读可写</span><br><span class="line">list = <span class="literal">false</span>                                            不允许列表</span><br><span class="line">hosts allow = 10.0.0.0/24                               允许的主机范围</span><br><span class="line">hosts deny = 0.0.0.0/32                                 拒绝的主机范围</span><br><span class="line">auth users = rsync_backup                               虚拟用户</span><br><span class="line">secrets file = /etc/rsync.password                      用户对应的密码文件</span><br><span class="line"><span class="comment">#rsync_config_______________end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#rsync_config_______________start</span></span><br><span class="line"><span class="comment">#created by jo 2017-11-27</span></span><br><span class="line"><span class="comment">##rsyncd.conf start##</span></span><br><span class="line">uid = rsync</span><br><span class="line">gid = rsync</span><br><span class="line">use chroot = no</span><br><span class="line">max connections = 200</span><br><span class="line">timeout = 300</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line"><span class="built_in">log</span> file = /var/<span class="built_in">log</span>/rsyncd.log</span><br><span class="line">[backup]</span><br><span class="line">path = /backup</span><br><span class="line">ignore errors</span><br><span class="line"><span class="built_in">read</span> only = <span class="literal">false</span></span><br><span class="line">list = <span class="literal">false</span></span><br><span class="line">hosts allow = 172.16.1.0/24</span><br><span class="line">hosts deny = 0.0.0.0/32</span><br><span class="line">auth users = rsync_backup</span><br><span class="line">secrets file = /etc/rsync.password</span><br><span class="line"><span class="comment">#rsync_config_______________end</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#多模块配置</span></span><br><span class="line">cat &gt;/etc/rsyncd.conf&lt;&lt;EOF</span><br><span class="line"><span class="comment">#rsync_config_______________start</span></span><br><span class="line"><span class="comment">#created by jo 2018-07-27</span></span><br><span class="line"><span class="comment">##rsyncd.conf start##</span></span><br><span class="line">uid = rsync</span><br><span class="line">gid = rsync</span><br><span class="line">use chroot = no</span><br><span class="line">max connections = 200</span><br><span class="line">timeout = 300</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line"><span class="built_in">log</span> file = /var/<span class="built_in">log</span>/rsyncd.log</span><br><span class="line"><span class="comment">#提取到上面，让所有模块公用下面的配置</span></span><br><span class="line">ignore errors</span><br><span class="line"><span class="built_in">read</span> only = <span class="literal">false</span></span><br><span class="line">list = <span class="literal">false</span></span><br><span class="line">hosts allow = 172.16.1.0/24</span><br><span class="line"><span class="comment">#hosts allow和 hosts deny只保留一条</span></span><br><span class="line"><span class="comment">#hosts deny = 0.0.0.0/32</span></span><br><span class="line">auth users = rsync_backup</span><br><span class="line">secrets file = /etc/rsync.password</span><br><span class="line">[backup]</span><br><span class="line">path = /backup</span><br><span class="line">[nfsbackup]</span><br><span class="line">path = /nfsbackup</span><br><span class="line"><span class="comment">#rsync_config_______________end</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-<h4 id="根据rsyncd-conf的auth-users配置帐户，远程连接的。并根据secrets-file-参数生成密码文件"><a href="#根据rsyncd-conf的auth-users配置帐户，远程连接的。并根据secrets-file-参数生成密码文件" class="headerlink" title="根据rsyncd.conf的auth users配置帐户，远程连接的。并根据secrets file 参数生成密码文件"></a>根据rsyncd.conf的auth users配置帐户，远程连接的。并根据secrets file 参数生成密码文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"rsync_backup:123456"</span> &gt;/etc/rsync.password</span><br><span class="line">cat /etc/rsync.password</span><br></pre></td></tr></table></figure>
-<h4 id="为密码文件配置权限"><a href="#为密码文件配置权限" class="headerlink" title="为密码文件配置权限"></a>为密码文件配置权限</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 /etc/rsync.password</span><br><span class="line">ls -l /etc/rsync.password</span><br></pre></td></tr></table></figure>
-<h4 id="创建共享的目录并授权rsync服务管理"><a href="#创建共享的目录并授权rsync服务管理" class="headerlink" title="创建共享的目录并授权rsync服务管理"></a>创建共享的目录并授权rsync服务管理</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /backup -p</span><br><span class="line">chown -R rsync.rsync /backup</span><br><span class="line">ls -ld /backup/</span><br><span class="line"><span class="comment">#如果没有/backup目录，就会chdir failed</span></span><br></pre></td></tr></table></figure>
-<h4 id="启动rsync服务并检查"><a href="#启动rsync服务并检查" class="headerlink" title="启动rsync服务并检查"></a>启动rsync服务并检查</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rsync --daemon</span><br><span class="line">ps -ef | grep rsync |grep -v grep</span><br><span class="line">lsof -i :873</span><br><span class="line"><span class="comment">#或者用下面的命令，已知端口查看命令</span></span><br><span class="line">netstat -lntup|grep 873</span><br><span class="line">ss -lntup|grep 873</span><br></pre></td></tr></table></figure>
-<h4 id="加入开机启动"><a href="#加入开机启动" class="headerlink" title="加入开机启动"></a>加入开机启动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /etc/rc.d/rc.local</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"/usr/bin/rsync --daemon"</span> &gt;&gt;/etc/rc.local</span><br><span class="line">tail -1 /etc/rc.local</span><br></pre></td></tr></table></figure>
-<h4 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1，输出结果</span><br><span class="line">2，日志tail /var/<span class="built_in">log</span>/rsyncd.log</span><br><span class="line">3，熟练部署过程（原理）</span><br></pre></td></tr></table></figure>
-<h3 id="rsync客户端"><a href="#rsync客户端" class="headerlink" title="rsync客户端"></a>rsync客户端</h3><h4 id="生成连接服务器需要的密码文件"><a href="#生成连接服务器需要的密码文件" class="headerlink" title="生成连接服务器需要的密码文件"></a>生成连接服务器需要的密码文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"123456"</span> &gt;/etc/rsync.password</span><br><span class="line">cat /etc/rsync.password</span><br></pre></td></tr></table></figure>
-<h4 id="为密码文件配置权限-1"><a href="#为密码文件配置权限-1" class="headerlink" title="为密码文件配置权限"></a>为密码文件配置权限</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 /etc/rsync.password</span><br><span class="line">ls -l /etc/rsync.password</span><br></pre></td></tr></table></figure>
-<h4 id="同步文件"><a href="#同步文件" class="headerlink" title="同步文件"></a>同步文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#推送</span></span><br><span class="line">rsync -avz /tmp/ rsync_backup@172.16.1.41::backup/ --password-file=/etc/rsync.password</span><br><span class="line">rsync -avz /tmp/ rsync://rsync_backup@172.16.1.41/backup/ --password-file=/etc/rsync.password</span><br><span class="line"></span><br><span class="line"><span class="comment">#拉取：</span></span><br><span class="line">rsync -avz rsync_backup@172.16.1.41::backup /tmp/ --password-file=/etc/rsync.password</span><br><span class="line">rsync -avz rsync://rsync_backup@172.16.1.41/backup /tmp/ --password-file=/etc/rsync.password</span><br><span class="line"></span><br><span class="line">说明：注意/dir01/表示目录下的所有内容 /dir01表示的目录本身</span><br><span class="line">此例子是拷贝目录下的内容所以要加上/dir01/如果是要将/dir01整个目录拷贝到/dir02下，那么就要写/dir01  ---&gt;注意后面没有/</span><br><span class="line">1，目录后有/，复制目录下的内容</span><br><span class="line">2，目录后没有/，复制目录和目录下的内容</span><br></pre></td></tr></table></figure>
-
-          
+          <h3 id="服务端安装配置rsync"><a href="#服务端安装配置rsync" class="headerlink" title="服务端安装配置rsync"></a>服务端安装配置rsync</h3><h4 id="查看rsync安装包"><a href="#查看rsync安装包" class="headerlink" title="查看rsync安装包"></a>查看rsync安装包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#我的安装系统的时候，就已经安装了rsync软件了，只需要配置就可以了</span></span><br><span class="line">rpm -qa rsync</span><br><span class="line"><span class="comment">#安装</span></span><br><span class="line"><span class="comment">#yum install rsync -y</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#源码安装：</span></span><br><span class="line">rpm -e --nodeps rsync   <span class="comment">#卸载系统自带的rsync</span></span><br><span class="line">rpm -qa rsync</span><br><span class="line">wget https://download.samba.org/pub/rsync/src/rsync-3.1.3.tar.gz</span><br><span class="line"><span class="comment">#wget -O https://download.samba.org/pub/rsync/src/rsync-3.1.3.tar.gz ./rsync.tar.gz</span></span><br><span class="line"></span><br><span class="line">tar xf rsync-3.1.3.tar.gz</span><br><span class="line"><span class="built_in">cd</span> rsync-3.1.3</span><br><span class="line"></span><br><span class="line"><span class="comment">#./configure --prefix=/apps/rsync/</span></span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/25/17，备份--安装配置rsync/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1832,192 +1993,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2018/12/23/8，案例： tables full/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonah">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Z'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/23/8，案例： tables full/" itemprop="url">
-                  8，kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-23 20:51:00" itemprop="dateCreated datePublished" datetime="2018-12-23T20:51:00+08:00">2018-12-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-13 20:51:00" itemprop="dateModified" datetime="2018-12-13T20:51:00+08:00">2018-12-13</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/案例/" itemprop="url" rel="index"><span itemprop="name">案例</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/12/23/8，案例： tables full/" class="leancloud_visitors" data-flag-title="8，kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#企业案例</p>
-<blockquote>
-<p>/var/log/messages 出现kernel:nf_conntrack:table full,dropping packet.什么问题?如何解决?</p>
-</blockquote>
-<p>##解答:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#上述结果会让业务访问很慢!</span></span><br><span class="line"><span class="comment">#下面是针对iptables的优化</span></span><br><span class="line">net.nf_conntrack_max = 25000000</span><br><span class="line">net.netfilter.nf_conntrack_max = 25000000</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_established = 180</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_close_wait = 60</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 120</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2065,7 +2040,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2129,7 +2104,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
