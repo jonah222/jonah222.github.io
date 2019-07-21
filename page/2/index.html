@@ -315,6 +315,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2018/12/23/9，案例：迁移网站/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonah">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Z'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/23/9，案例：迁移网站/" itemprop="url">
+                  9，案例：网站迁移
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-23 21:57:00" itemprop="dateCreated datePublished" datetime="2018-12-23T21:57:00+08:00">2018-12-23</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/案例/" itemprop="url" rel="index"><span itemprop="name">案例</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/23/9，案例：迁移网站/" class="leancloud_visitors" data-flag-title="9，案例：网站迁移">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一次网站迁移故障及分析"><a href="#一次网站迁移故障及分析" class="headerlink" title="一次网站迁移故障及分析"></a>一次网站迁移故障及分析</h1><p><a href="http://blog.51cto.com/lxshopping/1574929" target="_blank" rel="noopener">http://blog.51cto.com/lxshopping/1574929</a></p>
+<h2 id="迁移流程应该是"><a href="#迁移流程应该是" class="headerlink" title="迁移流程应该是:"></a>迁移流程应该是:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.暂停原服务器数据库，导出相关数据库</span><br><span class="line"></span><br><span class="line">2.将导出的数据库同步到杭州xx服务器上面并导入到数据库中</span><br><span class="line"></span><br><span class="line">3.对xx服务器进行压力测试及用户登录测试</span><br><span class="line"></span><br><span class="line">4.回滚方案，出现问题及时回滚到原服务器，保证用户正常访问</span><br><span class="line"></span><br><span class="line">5.切换域名指向到xx服务器</span><br><span class="line"></span><br><span class="line">6.原服务器上面做301跳转到xx服务器（保证不写入新数据到原运营服务器上面）</span><br><span class="line"></span><br><span class="line">7.运营协助测试新服务器数据是否正常</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2018/12/23/8，案例： tables full/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1731,7 +1897,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

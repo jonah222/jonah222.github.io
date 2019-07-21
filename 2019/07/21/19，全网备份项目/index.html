@@ -110,21 +110,25 @@
 
 
 
-  <meta name="keywords" content="linux,nginx,mysql,ansible,keepalived">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Z&#39;Blog">
-<meta property="og:url" content="http://jonah222.gitee.io/tags/php/index.html">
+  <meta name="description" content="全网备份 某公司里有一台Web服务器，里面的数据很重要，但是如果硬盘坏了，数据就会丢失，现在领导要求你把数据在其他机器上做一个周期性定时备份。要求如下：每天晚上00点整在Web服务器A（web01）上打包备份网站程序目录并通过rsync命令推送到服务器B（backup）上备份保留（备份思路可以是先在本地按日期打包，然后再利用rsync推到备份服务器上）。具体要求如下：1）Web服务器A和备份服务器">
+<meta name="keywords" content="linux,nfs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="19，全网备份项目">
+<meta property="og:url" content="http://jonah222.gitee.io/2019/07/21/19，全网备份项目/index.html">
 <meta property="og:site_name" content="Z&#39;Blog">
+<meta property="og:description" content="全网备份 某公司里有一台Web服务器，里面的数据很重要，但是如果硬盘坏了，数据就会丢失，现在领导要求你把数据在其他机器上做一个周期性定时备份。要求如下：每天晚上00点整在Web服务器A（web01）上打包备份网站程序目录并通过rsync命令推送到服务器B（backup）上备份保留（备份思路可以是先在本地按日期打包，然后再利用rsync推到备份服务器上）。具体要求如下：1）Web服务器A和备份服务器">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-21T12:04:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Z&#39;Blog">
+<meta name="twitter:title" content="19，全网备份项目">
+<meta name="twitter:description" content="全网备份 某公司里有一台Web服务器，里面的数据很重要，但是如果硬盘坏了，数据就会丢失，现在领导要求你把数据在其他机器上做一个周期性定时备份。要求如下：每天晚上00点整在Web服务器A（web01）上打包备份网站程序目录并通过rsync命令推送到服务器B（backup）上备份保留（备份思路可以是先在本地按日期打包，然后再利用rsync推到备份服务器上）。具体要求如下：1）Web服务器A和备份服务器">
 
 
 
 
 
 
-  <link rel="canonical" href="http://jonah222.gitee.io/tags/php/"/>
+  <link rel="canonical" href="http://jonah222.gitee.io/2019/07/21/19，全网备份项目/"/>
 
 
 
@@ -134,7 +138,7 @@
   };
 </script>
 
-  <title>标签: php | Z'Blog</title>
+  <title>19，全网备份项目 | Z'Blog</title>
   
 
 
@@ -181,7 +185,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -294,75 +298,207 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>php<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/07/21/19，全网备份项目/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonah">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Z'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/03/5，LNMP系列（三）之php源码安装/" itemprop="url">
-              
-                <span itemprop="name">5，LNMP系列（三）之php源码安装</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">19，全网备份项目
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-03T22:27:00+08:00"
-              content="2018-09-03" >
-          09-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-21 20:04:00" itemprop="dateCreated datePublished" datetime="2019-07-21T20:04:00+08:00">2019-07-21</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/21/19，全网备份项目/" class="leancloud_visitors" data-flag-title="19，全网备份项目">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="全网备份"><a href="#全网备份" class="headerlink" title="全网备份"></a>全网备份</h3><blockquote>
+<p>某公司里有一台Web服务器，里面的数据很重要，但是如果硬盘坏了，数据就会丢失，现在领导要求你把数据在其他机器上做一个周期性定时备份。要求如下：<br>每天晚上00点整在Web服务器A（web01）上打包备份网站程序目录并通过rsync命令推送到服务器B（backup）上备份保留（备份思路可以是先在本地按日期打包，然后再利用rsync推到备份服务器上）。<br>具体要求如下：<br>1）Web服务器A和备份服务器B的备份目录必须都为/backup。<br>2）Web服务器站点目录假定为（/var/www/html）。<br>3）Web服务器本地仅保留7天内的备份。<br>4）备份服务器上每周六的数据都保留，其他备份仅保留180天备份。<br>5）备份服务器上检查备份结果是否正常，并将每天的备份结果发给管理员信箱。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">要备份的主机：web01 172.16.1.8</span><br><span class="line">备份服务器（存放备份文件）：backup 172.16.1.41</span><br><span class="line">需要备份的目录：/var/spool/cron/root </span><br><span class="line">/etc/rc.local </span><br><span class="line">/etc/sysconfig/iptables </span><br><span class="line">/server/scripts </span><br><span class="line">/etc/sysctl.conf </span><br><span class="line">/etc/security/limits.conf </span><br><span class="line">/var/html/www </span><br><span class="line">/var/logs</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="1，安装rsync服务端和客户端"><a href="#1，安装rsync服务端和客户端" class="headerlink" title="1，安装rsync服务端和客户端"></a>1，安装rsync服务端和客户端</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">见17篇或者搜索rsync</span><br></pre></td></tr></table></figure>
+<h4 id="2，客户端脚本"><a href="#2，客户端脚本" class="headerlink" title="2，客户端脚本"></a>2，客户端脚本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/server/scripts/backup.sh文件内容</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">ip=$(/sbin/ifconfig eth1 | awk -F<span class="string">'[ :]+'</span> NR==2<span class="string">'&#123;print $4&#125;'</span>)</span><br><span class="line">backup_dir=/backup</span><br><span class="line">user=rsync_backup</span><br><span class="line">backup_server=172.16.1.41</span><br><span class="line">module=backup</span><br><span class="line">password_file=/etc/rsync.password</span><br><span class="line"><span class="keyword">if</span> [ ! -e <span class="variable">$&#123;backup_dir&#125;</span>/<span class="variable">$&#123;ip&#125;</span> ]; <span class="keyword">then</span></span><br><span class="line">  mkdir -p <span class="variable">$&#123;backup_dir&#125;</span>/<span class="variable">$&#123;ip&#125;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ $(date +%w) -eq 6 ]; <span class="keyword">then</span></span><br><span class="line">  time=$(<span class="variable">$&#123;date&#125;</span> +%F_%w)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  time=$(date +%F)</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> / &amp;&amp; \z</span><br><span class="line">tar zchf <span class="variable">$&#123;backup_dir&#125;</span>/<span class="variable">$&#123;ip&#125;</span>/web_<span class="variable">$&#123;time&#125;</span>.tar.gz var/spool/cron/root etc/rc.local etc/sysconfig/iptables server/scripts etc/sysctl.conf etc/security/limits.conf var/html/www app/logs &amp;&amp; \</span><br><span class="line">md5sum <span class="variable">$&#123;backup_dir&#125;</span>/<span class="variable">$ip</span>/web_<span class="variable">$&#123;time&#125;</span>.tar.gz &gt; <span class="variable">$&#123;backup_dir&#125;</span>/<span class="variable">$&#123;ip&#125;</span>/flag_$(date +%F).<span class="built_in">log</span> &amp;&amp; \</span><br><span class="line">rsync -az --password-file=<span class="variable">$&#123;password_file&#125;</span> <span class="variable">$&#123;backup_dir&#125;</span>/ <span class="variable">$&#123;user&#125;</span>@<span class="variable">$&#123;backup_server&#125;</span>::<span class="variable">$&#123;module&#125;</span>/</span><br><span class="line"></span><br><span class="line">find <span class="variable">$&#123;backup_dir&#125;</span> -<span class="built_in">type</span> f -mtime +7 \( -name <span class="string">"*.tar.gz"</span> -o -name <span class="string">"*.log"</span>\) | xargs rm -f</span><br></pre></td></tr></table></figure>
+<h4 id="3，写入定时任务"><a href="#3，写入定时任务" class="headerlink" title="3，写入定时任务"></a>3，写入定时任务</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 * * * /bin/sh /server/scripts/backup.sh &gt;/dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<h4 id="4，备份服务器上检查脚本"><a href="#4，备份服务器上检查脚本" class="headerlink" title="4，备份服务器上检查脚本"></a>4，备份服务器上检查脚本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/server/scripts/check_backup.sh</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">IP=$(ifconfig eth1|awk -F <span class="string">"[:]+"</span> <span class="string">'NR==2&#123;print $4&#125;'</span>)</span><br><span class="line">Path=/backup</span><br><span class="line"><span class="keyword">if</span> [ $(date +%w) -eq 6 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  Time=$(date +%F_%w)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  Time=$(date +%F)</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">find /backup -<span class="built_in">type</span> f -name <span class="string">"*<span class="variable">$&#123;Time&#125;</span>*.log'"</span> |xargs md5sum -c &gt;&gt; <span class="variable">$&#123;Path&#125;</span>/<span class="variable">$&#123;Time&#125;</span>_result.log</span><br><span class="line">sed -i -e  <span class="string">'/: FAILED$/s#.*#&lt;span style="color:red;"&gt;\0&lt;/span&gt;#g'</span> -e <span class="string">'/: OK$/s#.*#&lt;span style="color:green;"&gt;\0&lt;/span&gt;#g'</span> <span class="variable">$&#123;Path&#125;</span>/<span class="variable">$&#123;Time&#125;</span>_result.log</span><br><span class="line">mail -s <span class="string">"<span class="variable">$(echo -e "$&#123;Time&#125; backup result\nContent-type:text/html;charset=utf8")</span>"</span> jonah222@126.com &lt; <span class="variable">$&#123;Path&#125;</span>/<span class="variable">$&#123;Time&#125;</span>_result.log</span><br><span class="line">find /backup/ -<span class="built_in">type</span> f -mtime +7 -regextype <span class="string">'posix-extended'</span> ! -regex <span class="string">'.*_6.(tar.gz|log)'</span> <span class="comment">#| xargs rm -f</span></span><br><span class="line"><span class="comment">#find /backup/ -type f -mtime +180 ! -name "*.*_6.*" #|xargs rm -f</span></span><br><span class="line"><span class="comment">#find /backup/ -type f -mtime +7 -regextype 'posix-extended' ! -regex '.*_6.(tar.gz|log)'</span></span><br></pre></td></tr></table></figure>
+<h5 id="5，备份服务器定时任务"><a href="#5，备份服务器定时任务" class="headerlink" title="5，备份服务器定时任务"></a>5，备份服务器定时任务</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 * * * /bin/sh /server/scripts/check_backup.sh &gt;/dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/nfs/" rel="tag"># nfs</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/20/18，网络文件系统--安装配置nfs/" rel="next" title="18，网络文件系统--安装配置nfs">
+                <i class="fa fa-chevron-left"></i> 18，网络文件系统--安装配置nfs
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -383,8 +519,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -491,6 +636,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#全网备份"><span class="nav-number">1.</span> <span class="nav-text">全网备份</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1，安装rsync服务端和客户端"><span class="nav-number">1.1.</span> <span class="nav-text">1，安装rsync服务端和客户端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2，客户端脚本"><span class="nav-number">1.2.</span> <span class="nav-text">2，客户端脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3，写入定时任务"><span class="nav-number">1.3.</span> <span class="nav-text">3，写入定时任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4，备份服务器上检查脚本"><span class="nav-number">1.4.</span> <span class="nav-text">4，备份服务器上检查脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5，备份服务器定时任务"><span class="nav-number">1.4.1.</span> <span class="nav-text">5，备份服务器定时任务</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -670,6 +831,10 @@ var _hmt = _hmt || [];
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
 
   
 
@@ -1024,43 +1189,35 @@ var _hmt = _hmt || [];
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function ({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         })
-        .fail(function ({ responseJSON }) {
-          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
-        });
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
     }
     
 
@@ -1080,9 +1237,7 @@ var _hmt = _hmt || [];
             });
           };
           
-          if ($('.post-title-link').length >= 1) {
-            showTime(Counter);
-          }
+          addCount(Counter);
           
         })
     });
