@@ -111,7 +111,7 @@
 
 
   <meta name="description" content="全网备份 某公司里有一台Web服务器，里面的数据很重要，但是如果硬盘坏了，数据就会丢失，现在领导要求你把数据在其他机器上做一个周期性定时备份。要求如下：每天晚上00点整在Web服务器A（web01）上打包备份网站程序目录并通过rsync命令推送到服务器B（backup）上备份保留（备份思路可以是先在本地按日期打包，然后再利用rsync推到备份服务器上）。具体要求如下：1）Web服务器A和备份服务器">
-<meta name="keywords" content="linux,nfs">
+<meta name="keywords" content="linux,rsync">
 <meta property="og:type" content="article">
 <meta property="og:title" content="19，全网备份项目">
 <meta property="og:url" content="http://jonah222.gitee.io/2019/07/21/19，全网备份项目/index.html">
@@ -454,7 +454,7 @@
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/nfs/" rel="tag"># nfs</a>
+            <a href="/tags/rsync/" rel="tag"># rsync</a>
           
         </div>
       
@@ -476,6 +476,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/22/20，sersync安装配置/" rel="prev" title="20，sersync安装配置">
+                20，sersync安装配置 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -545,7 +549,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -611,7 +615,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
