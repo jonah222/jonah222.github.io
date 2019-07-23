@@ -315,6 +315,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/07/23/21，定时任务的简单说明/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonah">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Z'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/23/21，定时任务的简单说明/" itemprop="url">
+                  21，定时任务的简单说明
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-23 22:17:00" itemprop="dateCreated datePublished" datetime="2019-07-23T22:17:00+08:00">2019-07-23</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/23/21，定时任务的简单说明/" class="leancloud_visitors" data-flag-title="21，定时任务的简单说明">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h4><h4 id="查询软件是否安装"><a href="#查询软件是否安装" class="headerlink" title="查询软件是否安装"></a>查询软件是否安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep cron         <span class="comment">#常用</span></span><br><span class="line">rpm -qa cronie</span><br></pre></td></tr></table></figure>
+<h4 id="查询这个软件包里面有什么内容"><a href="#查询这个软件包里面有什么内容" class="headerlink" title="查询这个软件包里面有什么内容"></a>查询这个软件包里面有什么内容</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ql cronie</span><br></pre></td></tr></table></figure>
+<h4 id="找出ifconfig-属于哪个软件包？"><a href="#找出ifconfig-属于哪个软件包？" class="headerlink" title="找出ifconfig 属于哪个软件包？"></a>找出ifconfig 属于哪个软件包？</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@oldboyedu-01 ~]<span class="comment"># rpm -qf $(which ifconfig)</span></span><br><span class="line">net-tools-1.60-114.el6.x86_64</span><br></pre></td></tr></table></figure>
+<h4 id="日志切割-轮询"><a href="#日志切割-轮询" class="headerlink" title="日志切割 轮询"></a>日志切割 轮询</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@oldboyedu-01 ~]<span class="comment"># ll -d /var/log/messages* /var/log/secure*</span></span><br><span class="line">-rw-------  1 root root 110279 Jul 10 14:51 /var/<span class="built_in">log</span>/messages</span><br><span class="line">-rw-------. 1 root root 425211 Jun  7 12:01 /var/<span class="built_in">log</span>/messages-20180607</span><br><span class="line">-rw-------  1 root root 320633 Jun 10 11:35 /var/<span class="built_in">log</span>/messages-20180610</span><br><span class="line">-rw-------  1 root root   6975 Jul  7 10:08 /var/<span class="built_in">log</span>/messages-20180707</span><br><span class="line">-rw-------  1 root root    393 Jul  8 00:24 /var/<span class="built_in">log</span>/messages-20180708</span><br><span class="line">-rw-------  1 root root   3186 Jul 10 21:20 /var/<span class="built_in">log</span>/secure</span><br><span class="line">-rw-------. 1 root root   4347 Jun  7 11:37 /var/<span class="built_in">log</span>/secure-20180607</span><br><span class="line">-rw-------  1 root root   3711 Jun 10 10:44 /var/<span class="built_in">log</span>/secure-20180610</span><br><span class="line">-rw-------  1 root root   5869 Jul  7 09:33 /var/<span class="built_in">log</span>/secure-20180707</span><br><span class="line">-rw-------  1 root root   6309 Jul  8 10:18 /var/<span class="built_in">log</span>/secure-20180708</span><br></pre></td></tr></table></figure>
+<h4 id="定时任务-logrotate"><a href="#定时任务-logrotate" class="headerlink" title="定时任务+logrotate"></a>定时任务+logrotate</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/cron.daily/logrotate</span><br><span class="line">/etc/logrotate.d/syslog</span><br><span class="line">这两个文件共同决定，进行日志切割，轮询</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/07/22/20，sersync安装配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1834,177 +2003,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/02/17/11，克隆完成虚拟机，修改主机名和ip/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonah">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Z'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/17/11，克隆完成虚拟机，修改主机名和ip/" itemprop="url">
-                  11，克隆完成虚拟机，修改主机名和ip
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-17 21:46:00" itemprop="dateCreated datePublished" datetime="2019-02-17T21:46:00+08:00">2019-02-17</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/02/17/11，克隆完成虚拟机，修改主机名和ip/" class="leancloud_visitors" data-flag-title="11，克隆完成虚拟机，修改主机名和ip">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Centos-6"><a href="#Centos-6" class="headerlink" title="Centos 6"></a>Centos 6</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip=77;name=ldapserver;</span><br><span class="line">sed -i <span class="string">'/IPADDR/s#200$#'</span><span class="string">"<span class="variable">$ip</span>"</span><span class="string">'#g'</span> /etc/sysconfig/network-scripts/ifcfg-eth*</span><br><span class="line">sed -i <span class="string">'s#oldboy-muban#'</span><span class="string">"<span class="variable">$name</span>"</span><span class="string">'#g'</span> /etc/sysconfig/network</span><br></pre></td></tr></table></figure>
-<h2 id="Centos-7"><a href="#Centos-7" class="headerlink" title="Centos 7"></a>Centos 7</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip=111;name=docker;</span><br><span class="line">sed -i <span class="string">'/IPADDR/s#222$#'</span><span class="string">"<span class="variable">$ip</span>"</span><span class="string">'#g'</span> /etc/sysconfig/network-scripts/ifcfg-eth*</span><br><span class="line"><span class="comment">#sed -i 's#centos7-muban#'"$name"'#g' /etc/hostname</span></span><br><span class="line">hostnamectl <span class="built_in">set</span>-hostname <span class="variable">$name</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2047,7 +2050,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2119,7 +2122,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
