@@ -315,6 +315,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/07/24/22，阿里云centos 7 发送邮件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jonah">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Z'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/24/22，阿里云centos 7 发送邮件/" itemprop="url">
+                  22，阿里云centos 7 发送邮件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-24 22:52:00" itemprop="dateCreated datePublished" datetime="2019-07-24T22:52:00+08:00">2019-07-24</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/24/22，阿里云centos 7 发送邮件/" class="leancloud_visitors" data-flag-title="22，阿里云centos 7 发送邮件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="centos-7-发送邮件"><a href="#centos-7-发送邮件" class="headerlink" title="centos 7 发送邮件"></a>centos 7 发送邮件</h3><blockquote>
+<p>由于阿里云服务器无法开放25端口，所以只能使用证书</p>
+</blockquote>
+<h4 id="创建证书"><a href="#创建证书" class="headerlink" title="创建证书"></a>创建证书</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /server/.certs/                           <span class="comment">####创建目录，用来存放证书</span></span><br><span class="line"><span class="built_in">echo</span> -n | openssl s_client -connect smtp.126.com:465 | sed -ne <span class="string">'/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'</span> &gt; /server/.certs/126.crt                    <span class="comment">####向126请求证书</span></span><br><span class="line">certutil -A -n <span class="string">"GeoTrust SSL CA"</span> -t <span class="string">"C,,"</span> -d /server/.certs -i /server/.certs/126.crt                  <span class="comment">####添加一个SSL证书到证书数据库中</span></span><br><span class="line">certutil -A -n <span class="string">"GeoTrust Global CA"</span> -t <span class="string">"C,,"</span> -d /server/.certs -i /server/.certs/126.crt               <span class="comment">####添加一个Global 证书到证书数据库中</span></span><br><span class="line">certutil -L -d /server/.certs                         <span class="comment">####列出目录下证书</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /server/.certs/</span><br><span class="line">certutil -A -n <span class="string">"GeoTrust SSL CA - G3"</span> -t <span class="string">"Pu,Pu,Pu"</span> -d ./ -i 126.crt</span><br></pre></td></tr></table></figure>
+<h4 id="etc-mail-rc配置文件，在文件最后加上下面的内容"><a href="#etc-mail-rc配置文件，在文件最后加上下面的内容" class="headerlink" title="/etc/mail.rc配置文件，在文件最后加上下面的内容"></a>/etc/mail.rc配置文件，在文件最后加上下面的内容</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> from=jonah222@126.com smtp=smtps://smtp.126.com:465</span><br><span class="line"><span class="built_in">set</span> smtp-auth-user=jonah222@126.com  smtp-auth-password=as20200107w</span><br><span class="line"><span class="built_in">set</span> smtp-auth=login</span><br><span class="line"><span class="built_in">set</span> ssl-verify=ignore</span><br><span class="line"><span class="built_in">set</span> nss-config-dir=/server/.certs</span><br></pre></td></tr></table></figure>
+<h4 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法一：</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"hello"</span> | mail -s <span class="string">"合同"</span> z@totar.cn</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：</span></span><br><span class="line">mail -s <span class="string">"<span class="variable">$(echo -e " backup result\nContent-type:text/html;charset=utf8")</span>"</span> z@totar.cn &lt; result.log</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'&lt;div style="color:red;"&gt;result ok&lt;/div&gt;'</span> |mail -s <span class="string">"<span class="variable">$(echo -e " backup result\nContent-type:text/html;charset=utf8")</span>"</span> z@totar.cn</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/07/23/21，定时任务的简单说明/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1832,178 +2002,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/02/25/12，docker常用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jonah">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Z'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/25/12，docker常用命令/" itemprop="url">
-                  12，docker的常用命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-25 10:45:00" itemprop="dateCreated datePublished" datetime="2019-02-25T10:45:00+08:00">2019-02-25</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/02/25/12，docker常用命令/" class="leancloud_visitors" data-flag-title="12，docker的常用命令">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数：</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>docker的常用命令</p>
-<ul>
-<li>1、查看docker版本信息<br>docker version<br>查看客户端的信息，并通过socket查询服务端的信息。</li>
-<li>2、查看docker信息<br>docker info<br>查看docker的汇总信息。<br>3、查看镜像列表<br>docker images<br>4、查看所有的镜像包括过程镜像<br>docker images -a
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/25/12，docker常用命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2051,7 +2049,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2127,7 +2125,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
