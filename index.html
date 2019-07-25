@@ -595,15 +595,17 @@
 
       
         
-          
-            <h3 id="centos-7-发送邮件"><a href="#centos-7-发送邮件" class="headerlink" title="centos 7 发送邮件"></a>centos 7 发送邮件</h3><blockquote>
+          <h3 id="centos-7-发送邮件"><a href="#centos-7-发送邮件" class="headerlink" title="centos 7 发送邮件"></a>centos 7 发送邮件</h3><blockquote>
 <p>由于阿里云服务器无法开放25端口，所以只能使用证书</p>
 </blockquote>
 <h4 id="创建证书"><a href="#创建证书" class="headerlink" title="创建证书"></a>创建证书</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /server/.certs/                           <span class="comment">####创建目录，用来存放证书</span></span><br><span class="line"><span class="built_in">echo</span> -n | openssl s_client -connect smtp.126.com:465 | sed -ne <span class="string">'/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'</span> &gt; /server/.certs/126.crt                    <span class="comment">####向126请求证书</span></span><br><span class="line">certutil -A -n <span class="string">"GeoTrust SSL CA"</span> -t <span class="string">"C,,"</span> -d /server/.certs -i /server/.certs/126.crt                  <span class="comment">####添加一个SSL证书到证书数据库中</span></span><br><span class="line">certutil -A -n <span class="string">"GeoTrust Global CA"</span> -t <span class="string">"C,,"</span> -d /server/.certs -i /server/.certs/126.crt               <span class="comment">####添加一个Global 证书到证书数据库中</span></span><br><span class="line">certutil -L -d /server/.certs                         <span class="comment">####列出目录下证书</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /server/.certs/</span><br><span class="line">certutil -A -n <span class="string">"GeoTrust SSL CA - G3"</span> -t <span class="string">"Pu,Pu,Pu"</span> -d ./ -i 126.crt</span><br></pre></td></tr></table></figure>
-<h4 id="etc-mail-rc配置文件，在文件最后加上下面的内容"><a href="#etc-mail-rc配置文件，在文件最后加上下面的内容" class="headerlink" title="/etc/mail.rc配置文件，在文件最后加上下面的内容"></a>/etc/mail.rc配置文件，在文件最后加上下面的内容</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> from=*****@126.com smtp=smtps://smtp.126.com:465</span><br><span class="line"><span class="built_in">set</span> smtp-auth-user=*****@126.com  smtp-auth-password=xxxxxxxx</span><br><span class="line"><span class="built_in">set</span> smtp-auth=login</span><br><span class="line"><span class="built_in">set</span> ssl-verify=ignore</span><br><span class="line"><span class="built_in">set</span> nss-config-dir=/server/.certs</span><br></pre></td></tr></table></figure>
-<h4 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法一：</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"hello"</span> | mail -s <span class="string">"合同"</span> z@totar.cn</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：</span></span><br><span class="line">mail -s <span class="string">"<span class="variable">$(echo -e " backup result\nContent-type:text/html;charset=utf8")</span>"</span> z@totar.cn &lt; result.log</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'&lt;div style="color:red;"&gt;result ok&lt;/div&gt;'</span> |mail -s <span class="string">"<span class="variable">$(echo -e " backup result\nContent-type:text/html;charset=utf8")</span>"</span> z@totar.cn</span><br></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/24/22，阿里云centos 7 发送邮件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
