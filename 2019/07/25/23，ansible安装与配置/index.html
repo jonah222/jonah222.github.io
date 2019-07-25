@@ -110,25 +110,25 @@
 
 
 
-  <meta name="description" content="定时任务查询软件是否安装12rpm -qa | grep cron         #常用rpm -qa cronie 查询这个软件包里面有什么内容1rpm -ql cronie">
-<meta name="keywords" content="linux,cron,定时任务">
+  <meta name="description" content="Ansible安装配置1，ansible安装123456wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo#m01yum install ansible -yyum install libselinux-python -y#backup nfs01 客户端安装yum install libsel">
+<meta name="keywords" content="linux,ansible,批量管理,devops">
 <meta property="og:type" content="article">
-<meta property="og:title" content="21，定时任务的简单说明">
-<meta property="og:url" content="http://jonah222.gitee.io/2019/07/23/21，定时任务的简单说明/index.html">
+<meta property="og:title" content="23，ansible安装与配置">
+<meta property="og:url" content="http://jonah222.gitee.io/2019/07/25/23，ansible安装与配置/index.html">
 <meta property="og:site_name" content="Z&#39;Blog">
-<meta property="og:description" content="定时任务查询软件是否安装12rpm -qa | grep cron         #常用rpm -qa cronie 查询这个软件包里面有什么内容1rpm -ql cronie">
+<meta property="og:description" content="Ansible安装配置1，ansible安装123456wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo#m01yum install ansible -yyum install libselinux-python -y#backup nfs01 客户端安装yum install libsel">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T14:17:00.000Z">
+<meta property="og:updated_time" content="2019-07-25T15:10:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="21，定时任务的简单说明">
-<meta name="twitter:description" content="定时任务查询软件是否安装12rpm -qa | grep cron         #常用rpm -qa cronie 查询这个软件包里面有什么内容1rpm -ql cronie">
+<meta name="twitter:title" content="23，ansible安装与配置">
+<meta name="twitter:description" content="Ansible安装配置1，ansible安装123456wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo#m01yum install ansible -yyum install libselinux-python -y#backup nfs01 客户端安装yum install libsel">
 
 
 
 
 
 
-  <link rel="canonical" href="http://jonah222.gitee.io/2019/07/23/21，定时任务的简单说明/"/>
+  <link rel="canonical" href="http://jonah222.gitee.io/2019/07/25/23，ansible安装与配置/"/>
 
 
 
@@ -138,7 +138,7 @@
   };
 </script>
 
-  <title>21，定时任务的简单说明 | Z'Blog</title>
+  <title>23，ansible安装与配置 | Z'Blog</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/07/23/21，定时任务的简单说明/">
+    <link itemprop="mainEntityOfPage" href="http://jonah222.gitee.io/2019/07/25/23，ansible安装与配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jonah">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">21，定时任务的简单说明
+          <h1 class="post-title" itemprop="name headline">23，ansible安装与配置
               
             
           </h1>
@@ -360,7 +360,7 @@
                 
               
 
-              <time title="创建时间：2019-07-23 22:17:00" itemprop="dateCreated datePublished" datetime="2019-07-23T22:17:00+08:00">2019-07-23</time>
+              <time title="创建时间：2019-07-25 23:10:00" itemprop="dateCreated datePublished" datetime="2019-07-25T23:10:00+08:00">2019-07-25</time>
             
 
             
@@ -392,7 +392,7 @@
 
           
           
-             <span id="/2019/07/23/21，定时任务的简单说明/" class="leancloud_visitors" data-flag-title="21，定时任务的简单说明">
+             <span id="/2019/07/25/23，ansible安装与配置/" class="leancloud_visitors" data-flag-title="23，ansible安装与配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -423,12 +423,26 @@
       
 
       
-        <h4 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h4><h4 id="查询软件是否安装"><a href="#查询软件是否安装" class="headerlink" title="查询软件是否安装"></a>查询软件是否安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep cron         <span class="comment">#常用</span></span><br><span class="line">rpm -qa cronie</span><br></pre></td></tr></table></figure>
-<h4 id="查询这个软件包里面有什么内容"><a href="#查询这个软件包里面有什么内容" class="headerlink" title="查询这个软件包里面有什么内容"></a>查询这个软件包里面有什么内容</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ql cronie</span><br></pre></td></tr></table></figure>
+        <h1 id="Ansible安装配置"><a href="#Ansible安装配置" class="headerlink" title="Ansible安装配置"></a>Ansible安装配置</h1><h2 id="1，ansible安装"><a href="#1，ansible安装" class="headerlink" title="1，ansible安装"></a>1，ansible安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo</span><br><span class="line">#m01</span><br><span class="line">yum install ansible -y</span><br><span class="line">yum install libselinux-python -y</span><br><span class="line">#backup nfs01 客户端安装</span><br><span class="line">yum install libselinux-python -y</span><br></pre></td></tr></table></figure>
+<h2 id="2，修改配置文件"><a href="#2，修改配置文件" class="headerlink" title="2，修改配置文件"></a>2，修改配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@m01 ~]# tree /etc/ansible/</span><br><span class="line">/etc/ansible/</span><br><span class="line">├── ansible.cfg #ansible的配置文件</span><br><span class="line">├── hosts #ansible管理了 哪些服务器 服务器列表</span><br><span class="line">└── roles</span><br><span class="line">1 directory, 2 files</span><br><span class="line">[root@m01 ~]# cat /etc/ansible/hosts</span><br><span class="line">[oldboy]</span><br><span class="line">172.16.1.31</span><br><span class="line">172.16.1.41</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h4 id="找出ifconfig-属于哪个软件包？"><a href="#找出ifconfig-属于哪个软件包？" class="headerlink" title="找出ifconfig 属于哪个软件包？"></a>找出ifconfig 属于哪个软件包？</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@oldboyedu-01 ~]<span class="comment"># rpm -qf $(which ifconfig)</span></span><br><span class="line">net-tools-1.60-114.el6.x86_64</span><br></pre></td></tr></table></figure>
-<h4 id="日志切割-轮询"><a href="#日志切割-轮询" class="headerlink" title="日志切割 轮询"></a>日志切割 轮询</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@oldboyedu-01 ~]<span class="comment"># ll -d /var/log/messages* /var/log/secure*</span></span><br><span class="line">-rw-------  1 root root 110279 Jul 10 14:51 /var/<span class="built_in">log</span>/messages</span><br><span class="line">-rw-------. 1 root root 425211 Jun  7 12:01 /var/<span class="built_in">log</span>/messages-20180607</span><br><span class="line">-rw-------  1 root root 320633 Jun 10 11:35 /var/<span class="built_in">log</span>/messages-20180610</span><br><span class="line">-rw-------  1 root root   6975 Jul  7 10:08 /var/<span class="built_in">log</span>/messages-20180707</span><br><span class="line">-rw-------  1 root root    393 Jul  8 00:24 /var/<span class="built_in">log</span>/messages-20180708</span><br><span class="line">-rw-------  1 root root   3186 Jul 10 21:20 /var/<span class="built_in">log</span>/secure</span><br><span class="line">-rw-------. 1 root root   4347 Jun  7 11:37 /var/<span class="built_in">log</span>/secure-20180607</span><br><span class="line">-rw-------  1 root root   3711 Jun 10 10:44 /var/<span class="built_in">log</span>/secure-20180610</span><br><span class="line">-rw-------  1 root root   5869 Jul  7 09:33 /var/<span class="built_in">log</span>/secure-20180707</span><br><span class="line">-rw-------  1 root root   6309 Jul  8 10:18 /var/<span class="built_in">log</span>/secure-20180708</span><br></pre></td></tr></table></figure>
-<h4 id="定时任务-logrotate"><a href="#定时任务-logrotate" class="headerlink" title="定时任务+logrotate"></a>定时任务+logrotate</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/cron.daily/logrotate</span><br><span class="line">/etc/logrotate.d/syslog</span><br><span class="line">这两个文件共同决定，进行日志切割，轮询</span><br></pre></td></tr></table></figure>
+<h3 id="2-1分发密钥"><a href="#2-1分发密钥" class="headerlink" title="2.1分发密钥"></a>2.1分发密钥</h3><ul>
+<li><p>#0，生成密钥</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t dsa</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>#1，取消第一次连接的提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &apos;s/#host_key_checking = False/host_key_checking = False/g&apos; /etc/ansible/ansible.cfg</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>#2，修改/etc/ansible/hosts文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; /etc/ansible/hosts&lt;&lt;EOF</span><br><span class="line">[oldboy]</span><br><span class="line">10.0.0.22</span><br><span class="line">10.0.0.24</span><br><span class="line"></span><br><span class="line">[oldboy:vars]</span><br><span class="line">ansible_ssh_user=root </span><br><span class="line">ansible_ssh_pass=123456</span><br><span class="line">ansible_ssh_port=22</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>#3，分发密钥</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible oldboy -m  authorized_key  -a &quot;user=root key=&apos;&#123;&#123; lookup(&apos;file&apos;, &apos;/root/.ssh/id_dsa.pub&apos;) &#125;&#125;&apos;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3，测试ad-hoc"><a href="#3，测试ad-hoc" class="headerlink" title="3，测试ad-hoc"></a>3，测试ad-hoc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#执行命令</span><br><span class="line">ansible oldboy -m command -a &quot;hostname&quot;</span><br><span class="line">#ansible oldboy -m command -a &quot;yum install cowsay -y</span><br><span class="line"></span><br><span class="line">#复制文件到oldboy配置的主机的/tmp/目录下 并且更改文件属主，并把权限改为0755</span><br><span class="line">ansible oldboy -m copy -a &quot;src=/etc/hosts dest=/tmp owner=oldboy mode=0755&quot;</span><br><span class="line">#执行命令</span><br><span class="line">ansible oldboy -m command -a &quot;ls -l /tmp/hosts&quot;</span><br><span class="line">#复制文件 如果目标主机有文件，则备份</span><br><span class="line">ansible oldboy -m copy -a &quot;src=/etc/hosts dest=/tmp backup=yes&quot;</span><br><span class="line"></span><br><span class="line">#查看文档</span><br><span class="line">ansible-doc -l|wc -l</span><br><span class="line">ansible-doc -s copy</span><br><span class="line"></span><br><span class="line">#复制文件</span><br><span class="line">ansible oldboy -m copy -a &quot;src=/server/scripts/yum-htop.sh dest=/server/scripts/ &quot;</span><br><span class="line">#执行脚本</span><br><span class="line">ansible oldboy -m shell -a &quot;/bin/sh /server/scripts/yum-htop.sh&quot;</span><br><span class="line">ansible oldboy -m script -a &quot;/server/scripts/yum.sh&quot;</span><br><span class="line"></span><br><span class="line">ansible oldboy -m cron -a &quot;name=&apos;restart network&apos; minute=00 hour=00 job=&apos; /etc/init.d/network restart &gt;/dev/null 2&gt;&amp;1&apos;&quot;</span><br><span class="line"></span><br><span class="line">ansible oldboy -a &quot;crontab -l&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="4，测试playbook"><a href="#4，测试playbook" class="headerlink" title="4，测试playbook"></a>4，测试playbook</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /server/playbook</span><br><span class="line">vim ifconfig.yml</span><br><span class="line">- hosts: oldboy</span><br><span class="line">  tasks:</span><br><span class="line">    - command: ifconfig</span><br><span class="line">    - shell: ifconfig &gt;/tmp/ip.log</span><br><span class="line"></span><br><span class="line">ansible-playbook -C ifconfig.yml</span><br><span class="line">ansible-playbook ifconfig.yml</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vim print-ip.yml</span><br><span class="line">- hosts: all</span><br><span class="line">  tasks:</span><br><span class="line">    - name: get ip address</span><br><span class="line">      shell: ifconfig eth0 |awk -F &quot;[ :]+&quot; &apos;NR==2&#123;print $4&#125;&apos; &gt;&gt;/tmp/ip.log</span><br><span class="line"></span><br><span class="line">ansible-playbook -C print-ip.yml</span><br><span class="line">ansible-playbook print-ip.yml</span><br><span class="line">ansible all -a &quot;tail -1 /tmp/ip.log</span><br><span class="line"></span><br><span class="line">ansible oldboy -m cron -a &apos;name=&quot;restart network&quot; minute=00 hour=00 job=&quot;/etc/init.d/network restart &gt;/dev/null 2&gt;&amp;1&quot; state=present&apos;</span><br><span class="line"></span><br><span class="line">#添加定时任务</span><br><span class="line">cat add-cron.yml</span><br><span class="line">- hosts: oldboy</span><br><span class="line">  tasks:</span><br><span class="line">    - name: add restart network cron</span><br><span class="line">      cron: name=&quot;restart network&quot; minute=00 hour=00 job=&quot;/etc/init.d/network restart &gt;/dev/null 2&gt;&amp;1&quot; state=present</span><br><span class="line"></span><br><span class="line">ansible oldboy -a &quot;crontab -l&quot;</span><br><span class="line">ansible-playbook -C add-cron.yml</span><br><span class="line"></span><br><span class="line">ansible-playbook add-cron.yml</span><br><span class="line"></span><br><span class="line">- hosts: oldboy</span><br><span class="line">  tasks:</span><br><span class="line">  - name: add restart network cron</span><br><span class="line">    cron:</span><br><span class="line">      name: restart network</span><br><span class="line">      minute: 00</span><br><span class="line">      hour: 00</span><br><span class="line">      job: /etc/init.d/network restart &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">      state: present</span><br></pre></td></tr></table></figure>
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>centos6.8 使用ansible-doc -l报错<br>解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i &apos;s@#deprecation_warnings = True@deprecation_warnings = False@g&apos; /etc/ansible/ansible.cfg</span><br><span class="line">mv /usr/lib/python2.6/site-packages/ansible/modules/extras/cloud/misc/rhevm.py /tmp/</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -451,9 +465,11 @@
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/cron/" rel="tag"># cron</a>
+            <a href="/tags/ansible/" rel="tag"># ansible</a>
           
-            <a href="/tags/定时任务/" rel="tag"># 定时任务</a>
+            <a href="/tags/批量管理/" rel="tag"># 批量管理</a>
+          
+            <a href="/tags/devops/" rel="tag"># devops</a>
           
         </div>
       
@@ -466,8 +482,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/22/20，sersync安装配置/" rel="next" title="20，sersync安装配置">
-                <i class="fa fa-chevron-left"></i> 20，sersync安装配置
+              <a href="/2019/07/24/22，阿里云centos 7 发送邮件/" rel="next" title="22，阿里云centos 7 发送邮件">
+                <i class="fa fa-chevron-left"></i> 22，阿里云centos 7 发送邮件
               </a>
             
           </div>
@@ -475,10 +491,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/24/22，阿里云centos 7 发送邮件/" rel="prev" title="22，阿里云centos 7 发送邮件">
-                22，阿里云centos 7 发送邮件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -670,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定时任务"><span class="nav-number">1.</span> <span class="nav-text">定时任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询软件是否安装"><span class="nav-number">2.</span> <span class="nav-text">查询软件是否安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询这个软件包里面有什么内容"><span class="nav-number">3.</span> <span class="nav-text">查询这个软件包里面有什么内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找出ifconfig-属于哪个软件包？"><span class="nav-number">4.</span> <span class="nav-text">找出ifconfig 属于哪个软件包？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日志切割-轮询"><span class="nav-number">5.</span> <span class="nav-text">日志切割 轮询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定时任务-logrotate"><span class="nav-number">6.</span> <span class="nav-text">定时任务+logrotate</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ansible安装配置"><span class="nav-number">1.</span> <span class="nav-text">Ansible安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，ansible安装"><span class="nav-number">1.1.</span> <span class="nav-text">1，ansible安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，修改配置文件"><span class="nav-number">1.2.</span> <span class="nav-text">2，修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1分发密钥"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1分发密钥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，测试ad-hoc"><span class="nav-number">1.3.</span> <span class="nav-text">3，测试ad-hoc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，测试playbook"><span class="nav-number">1.4.</span> <span class="nav-text">4，测试playbook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意："><span class="nav-number">1.5.</span> <span class="nav-text">注意：</span></a></li></ol></li></ol></div>
             
 
           </div>
